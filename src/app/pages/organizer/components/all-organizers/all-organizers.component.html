@@ -1,0 +1,87 @@
+
+
+
+<div class="content-block">
+    <div class="dx-card responsive-paddings text-center">
+   
+      <table class="table table-hover">
+        <thead style="background-color: rgb(6, 104, 6); color: white;"
+                class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">الاسم</th>
+            <th scope="col">العنوان</th>
+            <th scope="col">التليفون</th>
+            <th scope="col">نشاط المنظمه</th>
+            <th scope="col"></th>          
+          </tr>
+        </thead>
+        <tbody *ngFor="let organizer of organizerService.organizers let i = index">
+          <tr >
+             <!-- (click)="showDetails(organizer)" -->
+            <th scope="row">{{i+1}}</th>
+            <td (click)="togglePopup(organizer)">{{organizer.title}}</td>
+            
+            <td (click)="togglePopup(organizer)"><ul *ngFor="let c of organizer.addresses">
+              <li>{{c.label}} : {{c.address}}</li>
+            </ul></td>
+  
+            <td (click)="togglePopup(organizer)"><ul *ngFor="let c of organizer.phones">
+              <li>{{c.label}} : {{c.phoneNumber}}</li>
+            </ul></td>
+            
+  
+            <td (click)="togglePopup(organizer)">{{organizer.organizer}}</td>
+            <td>
+              <!-- <dx-button icon="remove" (click)="DeleteEvent(event)">
+              </dx-button> -->
+              <dx-button (onClick)="togglePopup(organizer)" icon="edit">
+              </dx-button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    
+  
+  </div>
+ 
+</div>
+
+
+<dx-popup [(visible)]="isPopupVisible" [showCloseButton]="true" [hideOnOutsideClick]="false" [showTitle]="true"
+  title=" تفاصيل عن الجهة المنظة ">
+  <dx-scroll-view width="100%" height="100%" direction="both" [useNative]="true">
+
+       
+       <dx-form [colCount]="3"> 
+
+           <dxi-item  dataField="title"   dataField="الاسم"  [isRequired]="true">{{orgnizer1.title}}</dxi-item> 
+          <dxi-item    dataField="العنوان"   [isRequired]="true"><ul *ngFor="let c of orgnizer1.addresses">
+            <li>{{c.label}} : {{c.address}}</li>
+          </ul></dxi-item> 
+         
+          
+          
+           <dxi-item    dataField="الموقع الالكتروني" [isRequired]="true">:{{orgnizer1.website}}</dxi-item>
+          <dxi-item    dataField="رقم الهاتف" [isRequired]="true"><ul *ngFor="let c of orgnizer1.phones">
+            <li>{{c.label}} : {{c.phoneNumber}}</li>
+          </ul></dxi-item>
+          <dxi-item    dataField="البريد الالكتروني " [isRequired]="true"><ul *ngFor="let c of orgnizer1.emails">
+            <li>{{c.label}} : {{c.emailAddress}}</li>
+          </ul></dxi-item>        
+          
+          <dxi-item   dataField="الفعاليه" [isRequired]="true">:{{orgnizer1.activity}}</dxi-item>
+                          
+          <dxi-item>
+          <dx-button icon="remove"
+          text="هل تريد حذف هذه الجهة"
+          (click)="handleSubmit(orgnizer1.id)"
+          >
+
+          </dx-button>
+          
+          </dxi-item> 
+      </dx-form> 
+  </dx-scroll-view>
+</dx-popup> 

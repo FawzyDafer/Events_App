@@ -1,0 +1,156 @@
+<!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <app-single-event *ngFor="let even of eventServices.events" [eventData]="even">
+            </app-single-event>
+
+        </div>  -->
+
+<div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden">
+    <!-- Header -->
+    <div class="content-block">
+        <div class="dx-card responsive-paddings text-center">
+            <div
+                class="flex mainContainer gap-x-2 ipad-ver:px-1 ipad-hor:px-1 sm:px-4 sm:py-5 rounded-t-2xl overflow-y-auto">
+                <div class="d-flex flex-wrap gap-y-7 w-full">
+                    <ng-container *ngFor="let event of eventServices.events">
+                        <div class="event d-flex justify-center mb-4">
+                            <!-- <app-single-event [eventData]="event"></app-single-event> -->
+                            <div class="vip-event-wrapper border-accent-500 rounded-md bg-accent-200 cursor-pointer relative"
+                                style="border-radius: 7.5px !important">
+                                <img [src]="event.cover" (click)="ShawDetails(event)" class="event-cover w-100 h-50 rounded-t-md" />
+                                <div class="text-white bg-success relative px-3 w-75"
+                                    style="margin-top: -50px; position: relative">
+
+                                    {{ event.category }}
+                                </div>
+
+                                <div class="event-data-wraper text-accdnt-900 p-2 mt-5">
+                                    <div class="title text-center px-2 py-1 text-accent-900">
+                                        {{ event.title }}
+
+
+                                    </div>
+                                    <div class="flex-column d-flex justify-content-between items-center px-2 py-1">
+                                        <div
+                                            class="start-date text-md text-gray-500 mb-1 d-flex justify-content-between w-full">
+                                            <span> تاريخ بداية الفاعلية:</span>
+                                            <span> {{ event.startDate | date }}</span>
+                                        </div>
+                                        <div
+                                             class="end-date text-md text-gray-500 d-flex justify-content-between w-full">
+                                            <span>تاريخ نهاية الفاعلية:</span>
+                                            <span>{{ event.endDate | date }}</span>
+                                        </div>
+                                        <div
+                                        class="end-date text-md text-gray-500 d-flex justify-content-between w-full">
+                                        <dx-button icon="remove" (click)="DeleteEvent(event)">
+                                        </dx-button>
+                                        <dx-button icon="edit"
+
+                                        (click)="updateEvent(event)"
+                                        >
+                                      
+                                        </dx-button>
+                                    </div>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </ng-container>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <dx-popup [(visible)]="isPopupVisible" [showCloseButton]="true" [hideOnOutsideClick]="false" [showTitle]="true"
+    title="تفاصيل عن الفعاليه ">
+    <dx-scroll-view width="100%" height="100%" direction="both" [useNative]="true">
+  
+         <table>
+          <tr>
+              <td style="color:rgb(14, 107, 14) ;">عنوان الفعالية</td>
+              <td>:</td>
+              <td>{{EventDetails.title}}</td>
+              <td><br></td>
+          </tr>
+          <tr><td><br></td></tr>
+          <tr>
+              <td style="color:rgb(14, 107, 14) ;"> تاريخ بداية الفاعلية
+                
+              </td>
+                  <td> : </td>
+                  <td> {{ EventDetails.startDate | date }}</td>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+                  <td style="color:rgb(14, 107, 14) ;"> تاريخ نهايه الفاعلية
+                
+                  </td>
+                      <td> : </td>
+                      <td> {{ EventDetails.endDate | date }}</td>
+          </tr>
+  
+          <tr><td><br></td></tr>
+          <tr>
+              <td style="color:rgb(14, 107, 14) ;">   من
+                
+              </td>
+                  <td> : </td>
+                  <td> {{ EventDetails.timeTo | date }}</td>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+                  <td style="color:rgb(14, 107, 14) ;"> الي 
+                
+                  </td>
+                      <td> : </td>
+                      <td> {{ EventDetails.timeFrom | date }}</td>
+          </tr>
+  
+          <tr><td><br></td></tr>
+          <tr>
+              <td style="color:rgb(14, 107, 14) ;">   الموقع
+                
+              </td>
+                  <td> : </td>
+                  <td> {{ EventDetails.locations}}</td>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+                  <td style="color:rgb(14, 107, 14) ;"> الوصف 
+                
+                  </td>
+                      <td> : </td>
+                      <td> {{ EventDetails.description}}</td>
+          </tr>
+          <tr><td><br></td></tr>
+          <tr>
+              <td><dx-button icon="remove"
+                  text=" عرض الجهات المنظمة"
+                  
+                  ></dx-button></td>
+                  <!-- (click)="handleSubmit(EventDetails.id)" -->
+         </tr>
+          
+        </table>
+          <!-- <dx-form [colCount]="3"> 
+  
+             <dxi-item  dataField="title"   dataField="الاسم"  [isRequired]="true">{{EventDetails.title}}</dxi-item> 
+            -     
+            
+                   
+            <dxi-item>
+            <dx-button icon="remove"
+            text=" عرض الجهات المنظمة"
+            (click)="handleSubmit(EventDetails.id)"
+            >
+  
+            </dx-button>
+            
+            </dxi-item> 
+        </dx-form>  -->   
+      </dx-scroll-view>
+  </dx-popup>  
+
+
+  
+</div>
+
+
+

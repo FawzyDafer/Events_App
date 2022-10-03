@@ -1,0 +1,43 @@
+ <div class="content-block"> 
+    <dx-toolbar style="direction:ltr ;">
+          <dxi-item>
+              <dx-button icon="add" text="اضافه جهة منظمة جديدة" (onClick)="togglePopup()">
+              </dx-button>
+              <dx-popup [(visible)]="isPopupVisible" [showCloseButton]="true" [hideOnOutsideClick]="false" [showTitle]="true"
+                  title="اضافه جهة منظمة جديدة">
+                  <dx-scroll-view width="100%" height="100%" direction="both" [useNative]="true">
+  
+                       <form (submit)="handleSubmit($event)">
+                         <dx-form [(formData)]="organizer" [colCount]="3"> 
+
+                          <dxi-item   dataField="name"   [isRequired]="true" [label]="label"></dxi-item> 
+                          <dxi-item   dataField="label1"  [isRequired]="true"></dxi-item>
+                          <dxi-item    dataField="emailAddress"  [isRequired]="true"></dxi-item>
+                          
+                          <dxi-item    dataField="website" [isRequired]="true"></dxi-item>
+                          <dxi-item    dataField="label2" [isRequired]="true"></dxi-item>
+                          <dxi-item    dataField="address" [isRequired]="true"></dxi-item>
+                          
+                          <dxi-item   dataField="activity" [isRequired]="true"></dxi-item>
+                          <dxi-item     dataField="label3" [isRequired]="true"></dxi-item>
+                          <dxi-item    dataField="phoneNumber"[isRequired]="true"></dxi-item>
+                          
+                          
+                          
+                          
+                          <dxi-item  itemType="button" [buttonOptions]="submitButtonOptions">
+                          </dxi-item>         
+                      </dx-form>
+          </form>       
+                      
+                  </dx-scroll-view>
+              </dx-popup>
+          </dxi-item>
+          <dxi-item>
+          </dxi-item>
+          <dxi-item>
+          </dxi-item>
+          <dxi-item widget="dxLabel" text="الجهات المظمة">
+          </dxi-item>
+      </dx-toolbar> 
+</div>

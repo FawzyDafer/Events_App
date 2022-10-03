@@ -1,0 +1,54 @@
+
+
+        <img [src]="eventData.cover" (click)="singleEventClick(eventData)" class="event-cover w-100 h-50 rounded-t-md" />
+        <div class="text-white bg-success relative px-3 w-75"
+            style="margin-top: -50px; position: relative">
+
+            {{ eventData.category }}
+
+        </div>
+
+        <div class="event-data-wraper text-accdnt-900 p-2 mt-5">
+            <div class="title text-center px-2 py-1 text-accent-900">
+                {{ eventData.title }}
+
+
+            </div>
+            <div class="flex-column d-flex justify-content-between items-center px-2 py-1">
+                <div
+                    class="start-date text-md text-gray-500 mb-1 d-flex justify-content-between w-full">
+                    <span> تاريخ بداية الفاعلية:</span>
+                    <span> {{ eventData.startDate | date }}</span>
+                </div>
+                <div
+                     class="end-date text-md text-gray-500 d-flex justify-content-between w-full">
+                    <span>تاريخ نهاية الفاعلية:</span>
+                    <span>{{ eventData.endDate | date }}</span>
+                </div>
+                <div
+                class="end-date text-md text-gray-500 d-flex justify-content-between w-full">
+                <dx-button icon="remove" (click)="DeleteEvent(eventData)">
+                </dx-button>
+                <dx-button icon="edit">
+                </dx-button>
+            </div>
+              
+           
+                
+            </div>
+        </div>
+
+
+  <dx-toast
+  [(visible)]="isVisible"
+  type="success"
+  message="تم الحذف "
+  >
+  <dxo-position
+      my="top"
+      at="top"
+
+      >
+  </dxo-position> 
+</dx-toast>
+  

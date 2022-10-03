@@ -1,0 +1,74 @@
+<div class="content-block">
+    <!-- <div class="responsive-paddings text-center" > -->
+      <!-- <span>الفعليات</span> &nbsp; &nbsp; &nbsp;<span ><dx-button icon="add" text="اضف فاعلية جديدة"  (onClick)="togglePopup()">
+      </dx-button> </span>
+            <dx-popup [(visible)]="isPopupVisible" [showCloseButton]="true" [hideOnOutsideClick]="false" [showTitle]="true"
+            title="اضافه فاعليه جديدة">
+            <dx-scroll-view width="100%" height="100%" direction="both" [useNative]="true">
+  
+                <form (submit)="handleSubmit($event)">
+                <dx-form [formData]="employee" [colCount]="2">
+  
+                    <dxi-item  dataField="عنوان الفاعلية" dataField="title" [isRequired]="true">
+                        
+                    </dxi-item>
+                  
+                    <dxi-item  dataField="تاريخ البدء"dataField="startDate" [isRequired]="true"></dxi-item>
+                    <dxi-item  dataField="تاريخ الإنتهاء" dataField="endDate" [isRequired]="true"></dxi-item>
+                    <dxi-item  dataField="من" dataField="timeFrom" [isRequired]="true"></dxi-item>
+                    <dxi-item  dataField="إلى" dataField="timeTo" [isRequired]="true"></dxi-item>
+                  
+                    <dxi-item  dataField="نوع الفعالية" dataField="categorization"  [isRequired]="true"></dxi-item>
+                    <dxi-item  dataField="الموقع" dataField="locations" [isRequired]="true"></dxi-item>
+                    <dxi-item  dataField="الوصف" dataField="description" [isRequired]="true"></dxi-item>
+                    <dxi-item  dataField="الجهة المنظمة" dataField="organizers" [isRequired]="true"></dxi-item>  
+                    <dxi-item itemType="button" [buttonOptions]="submitButtonOptions">
+                    </dxi-item>         
+                </dx-form>
+    </form>          
+                
+            </dx-scroll-view>
+        </dx-popup>  -->
+  
+  
+     <dx-toolbar style="direction:ltr ;" >
+            <dxi-item>
+                <dx-button icon="add" text="اضف فاعلية جديدة" (onClick)="togglePopup()">
+                </dx-button>
+                <dx-popup [(visible)]="isPopupVisible" [showCloseButton]="true" [hideOnOutsideClick]="false" [showTitle]="true"
+                    title="اضافه فاعليه جديدة">
+                    <!-- <dx-scroll-view width="100%" height="100%" direction="both" [useNative]="true">
+     -->
+                        <form (submit)="handleSubmit($event)">
+                        <dx-form [(formData)]="event" [colCount]="3">
+    
+                            <dxi-item  dataField="عنوان الفاعلية" dataField="title" [isRequired]="true">
+                                
+                            </dxi-item>
+                          
+                            <dxi-item dataField="startDate"   [isRequired]="true"></dxi-item>
+                            <dxi-item  dataField="تاريخ الإنتهاء" dataField="endDate" [isRequired]="true"></dxi-item>
+                            <dxi-item  dataField="من" dataField="timeFrom" [isRequired]="true"></dxi-item>
+                            <dxi-item  dataField="إلى" dataField="timeTo" [isRequired]="true"></dxi-item>
+                          
+                            <dxi-item  dataField="نوع الفعالية" dataField="categorization"  [isRequired]="true"></dxi-item>
+                            <dxi-item  dataField="الموقع" dataField="locations" [isRequired]="true"></dxi-item>
+                            <dxi-item  dataField="الوصف" dataField="description" [isRequired]="true"></dxi-item>
+                            <dxi-item  dataField="الجهة المنظمة" dataField="organizers" [isRequired]="true"></dxi-item>  
+                            <dxi-item itemType="button" [buttonOptions]="submitButtonOptions">
+                            </dxi-item>         
+                        </dx-form>
+            </form>          
+                        
+                    <!-- </dx-scroll-view> -->
+                </dx-popup>
+            </dxi-item>
+            <dxi-item>
+            </dxi-item>
+            <dxi-item>
+            </dxi-item>
+            <dxi-item widget="dxLabel" text="الفاعليات">
+            </dxi-item>
+        </dx-toolbar>  
+     
+  </div>
