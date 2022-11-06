@@ -9,6 +9,8 @@ import { OrganizerService } from '../../services/organizer.service';
 export class AllOrganizersComponent implements OnInit {
   isPopupVisible: boolean =false;
   orgnizer1:any;
+  showOrganizerData=false;
+
   constructor(public organizerService:OrganizerService) { }
 
   ngOnInit(): void {

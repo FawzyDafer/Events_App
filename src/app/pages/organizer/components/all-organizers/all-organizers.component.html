@@ -54,7 +54,7 @@
   <dx-scroll-view width="100%" height="100%" direction="both" [useNative]="true">
 
        
-       <dx-form [colCount]="3"> 
+       <dx-form [colCount]="3" *ngIf="showOrganizerData"> 
 
            <dxi-item  dataField="title"   dataField="الاسم"  [isRequired]="true">{{orgnizer1.title}}</dxi-item> 
           <dxi-item    dataField="العنوان"   [isRequired]="true"><ul *ngFor="let c of orgnizer1.addresses">
@@ -85,3 +85,6 @@
       </dx-form> 
   </dx-scroll-view>
 </dx-popup> 
+
+<button
+  class="tailwind">Hello</button>

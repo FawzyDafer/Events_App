@@ -11,6 +11,7 @@ export class AllEventsComponent implements OnInit {
   isVisible: boolean = false;
   isPopupVisible: boolean =false;
   EventDetails:any;
+  showEventData=false;
  @Output() emittedEvent = new EventEmitter();
   constructor(public eventServices:EventService) { }
 
