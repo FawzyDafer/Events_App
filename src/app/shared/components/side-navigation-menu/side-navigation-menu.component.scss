@@ -12,6 +12,7 @@
     min-height: 100%;
     display: flex;
     padding: 10px;
+    background-color: rgb(10, 83, 10);
     flex: 1;
 
     ::ng-deep .dx-treeview {
@@ -89,4 +90,8 @@
     }
     // ##
   }
+}
+
+.hover-layout:hover{
+  background-color: rgb(9, 212, 9);
 }
