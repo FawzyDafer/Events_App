@@ -26,7 +26,7 @@ export class AllEventsComponent implements OnInit {
     this.eventServices.deleteEvent(event);
     this.eventServices.getAllEvents()
     this.isVisible = true;
-
+    this.showEventData =false;
 
 
 
@@ -41,10 +41,10 @@ export class AllEventsComponent implements OnInit {
     this.emittedEvent.emit(event)
   }
   handleSubmit(id:any){
-    console.log("id",id);
-   
-    
+    console.log("id",id);     
     this.isPopupVisible = !this.isPopupVisible;
+    this.showEventData =false;
+
   }
   submitButtonOptions = {
     
@@ -56,5 +56,6 @@ export class AllEventsComponent implements OnInit {
   ShawDetails(event:any){
   this.EventDetails = event;
   this.isPopupVisible = !this.isPopupVisible;
+  this.showEventData =true;
   }
 }

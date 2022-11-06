@@ -94,7 +94,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <dx-button icon="remove" text=" عرض الجهات المنظمة"></dx-button>
+                        <dx-button icon="show" text=" عرض الجهات المنظمة"></dx-button>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td> 
+                        <dx-button icon="remove" 
+                                   (onClick)="DeleteEvent(EventDetails)" 
+                                   text="حذف الفعالية">
+                        </dx-button>
                     </td>
                 </tr>
 

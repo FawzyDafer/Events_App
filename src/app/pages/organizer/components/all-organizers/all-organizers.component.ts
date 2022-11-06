@@ -26,12 +26,13 @@ export class AllOrganizersComponent implements OnInit {
         this.organizerService.getAllOrganizer();
       });
       //this.organizerService.DeleteOrganize(organizer.id);
+      this.showOrganizerData =false;
     }
-    togglePopup(organizer:any): void {    
-    this.isPopupVisible = !this.isPopupVisible;
     
+    togglePopup(organizer:any): void {    
+     this.isPopupVisible = !this.isPopupVisible;    
      this.orgnizer1 = organizer; 
-
+     this.showOrganizerData =true;
     }
     
     showDetails(organizer:any){
@@ -43,6 +44,7 @@ export class AllOrganizersComponent implements OnInit {
       console.log("emp",this.organizer)  ;
       this.organizerService.deleteOrganizer(id)
       this.isPopupVisible = !this.isPopupVisible;
+      this.showOrganizerData =false;
     }
     submitButtonOptions = {
       
